@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:tns="http://www.movielabs.com/schema/md/v2.6/md" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.movielabs.com/schema/md/v2.6/md" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="DisplayName" type="xs:string" />
+    <xs:element name="Namespace" type="xs:string" />
+    <xs:element name="Identifier" type="xs:string" />
+    <xs:element name="Number" type="xs:unsignedByte" />
+    <xs:element name="country" type="xs:string" />
+</xs:schema>

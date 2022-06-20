@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:md="http://www.movielabs.com/schema/md/v2.6/md" attributeFormDefault="unqualified"
+           elementFormDefault="qualified" targetNamespace="http://www.movielabs.com/schema/avails/v2.3/avails"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation="schema0.xsd" namespace="http://www.movielabs.com/schema/md/v2.6/md"/>
+    <xs:element name="AvailList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Avail">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ALID" type="xs:string"/>
+                            <xs:element name="Disposition">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="EntryType" type="xs:string"/>
+                                        <xs:element name="IssueDate" type="xs:dateTime"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Licensor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="md:DisplayName"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="AvailType" type="xs:string"/>
+                            <xs:element name="ShortDescription" type="xs:string"/>
+                            <xs:element name="Asset">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="WorkType" type="xs:string"/>
+                                        <xs:element name="EpisodeMetadata">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="TitleDisplayUnlimited" type="xs:string"/>
+                                                    <xs:element name="TitleInternalAlias" type="xs:string"/>
+                                                    <xs:element name="EditEIDR-URN" type="xs:string"/>
+                                                    <xs:element name="TitleEIDR-URN" type="xs:string"/>
+                                                    <xs:element maxOccurs="unbounded" name="AltIdentifier">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element ref="md:Namespace"/>
+                                                                <xs:element ref="md:Identifier"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="VersionDescription" type="xs:string"/>
+                                                    <xs:element name="EpisodeNumber">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element ref="md:Number"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="SeasonMetadata">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="SeasonContentID" type="xs:string"/>
+                                                                <xs:element name="SeasonEIDR-URN" type="xs:string"/>
+                                                                <xs:element name="SeasonTitleDisplayUnlimited"
+                                                                            type="xs:string"/>
+                                                                <xs:element name="SeasonTitleInternalAlias"
+                                                                            type="xs:string"/>
+                                                                <xs:element name="SeasonNumber">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element ref="md:Number"/>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="SeriesMetadata">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="SeriesContentID"
+                                                                                        type="xs:string"/>
+                                                                            <xs:element name="SeriesEIDR-URN"
+                                                                                        type="xs:string"/>
+                                                                            <xs:element
+                                                                                    name="SeriesTitleDisplayUnlimited"
+                                                                                    type="xs:string"/>
+                                                                            <xs:element name="SeriesTitleInternalAlias"
+                                                                                        type="xs:string"/>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="contentID" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Transaction">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Licensee">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element ref="md:DisplayName"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="organizationID" type="xs:unsignedInt"
+                                                              use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="LicenseType" type="xs:string"/>
+                                        <xs:element name="Territory">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element ref="md:country"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Start" type="xs:dateTime"/>
+                                        <xs:element name="End" type="xs:dateTime"/>
+                                        <xs:element name="FormatProfile" type="xs:string"/>
+                                        <xs:element maxOccurs="unbounded" name="Term">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element minOccurs="0" name="Type" type="xs:string"/>
+                                                    <xs:element minOccurs="0" name="Text" type="xs:string"/>
+                                                    <xs:element minOccurs="0" name="Boolean" type="xs:boolean"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="termName" type="xs:string" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="TransactionID" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
